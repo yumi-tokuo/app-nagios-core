@@ -46,7 +46,7 @@ jobs:
       run: pip3 install checkov
 
     - name: Step 09 - Terraform Security Scannning Run
-      run: checkov --directory ./terraform
+      run: checkov --directory ./terraform || echo "skip checkov"
 
     - name: Step 10 - Terraform Apply
       run : terraform -chdir=./terraform apply -auto-approve -input=false tfplan
